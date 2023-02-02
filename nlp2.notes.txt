@@ -1,0 +1,80 @@
+--------------------------------Konu modelleme(Topic modelling)
+boyut indirgme diye düşünüyorum
+--------------------------------
+#döküman kümesini konulara göre kümeler
+#unsupervise
+
+Yöntemler
+
+*Gizli anlamsal analiz(Latent semantic analysis)
+
+*non negative matrix factorization
+
+**latent dirichlet allocataion- (gizli dirichlet ayrımı)LDA 
+LDA modeli, bayes teorisini kullanarak hangi kelimenin hangi dokümanda hangi
+ konuyu temsil ettiğini tahmin etmeye çalışan
+ bir denetimsiz sınıflandırma modelidir.
+
+*Pachinko allocation model
+
+
+
+coherence(tutarlılık)
+coherencemodel en iyi konu sayısı seçimi
+
+----------RNN(öz yinelemeli)----
+
+dizilim modelleri(sequence models)
+
+-sıralı olan : zaman serisi,konuşma verisi,yazı verisi,video serisi
+
+
+n_gram modeli 
+az veridei kötü
+bağlantı yok 
+one hot ile yapılıyorbu rada
+kısa geçmişe bakabilir
+
+
+ 
+*vanishing gradients(kaybodal gradyanlar)
+
+*genlleştirme kötü
+
+---------lstm-----------------
+uzun kısa sürelli bellek
+
+uzun vadeli bagımlılık
+kaybolan gradyan çözümü
+rnn den daha karmasık
+
+
+
+unutma kapısı: sigmoid
+girdi kapısı:sigmoid  tanh(hücre)
+
+hücre dumunu güncellme:
+
+çıktı kapısı:sigmoid tanh
+
+
+lstm sorunu
+
+hala uzun vadeli sorun var
+karmaşık 
+
+geriye doğru kötü çifyğnl lsdm güzel
+
+
+-------------transformer--------
+
+paralel hesaplama okey
+
+uzun vadeyi çözer
+
+self attention var
+
+
+
+
+values count negatif megatif

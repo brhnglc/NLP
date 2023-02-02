@@ -1,0 +1,180 @@
+Doğal dil -> Bilgisayarın anlamlandırabilcegi format
+bu çevire işlemi ne de NLP denir
+
+
+makine çevirisi(1954)
+#60 rusça kelime ingilziceye çevrildi
+
+ontoloji = metin adlandırma (yüz hangi anlamda yüz ?)
+
+
+1.Makine Çevirisi(tercüm etme)
+2.konuşma tanıma
+3.Hissiyat Analizi(Sentiment analysis)#duygusallık çıkarımı
+4.Soru Cevaplama
+
+Alt Başlık
+a-kelime bilimi(etimoloji)
+b-söz dizimi(sytnax) ilke ve kuralar
+c-Semantics(anlamsal analiz) sözcük ve cümle anlamı
+d-Anlam Belirsizligi (Disambiguation) bağlam(örn:yüz)
+
+araştırma konuları
+-varlık ismi tanıma(özel isim,kişi,kurum)
+-özetleme(summarization)
+-metin normalizayonu(hata ayıklama)
+-metin sınıflandırma(segmantasyon gibi)
+
+-------LIBS---------------------
+
+1-)NLTK
+-istaiksle ve sembolik içerir
+
+2-)spaCy
+-endüstriyel
+
+3-)zemberek
+-türkçe nlp for java
+
+-----Tokenization---------------
+
+Token = anlamlı en küçük parça (kelime,noktalama işaratei,)
+
+tokenize etmek = 
+
+Cümle tokenize etme = noktalama işareti
+
+kelime tokenize etme = boşluk
+
+
+-----------Kavramlar------------
+1-)Gövdeleme(stemming) 
+   #köküne indirme(yapım ve 
+    çekim ekiminden kurtulma)
+2-)Baş sözcük çıkarma(lemmatization)
+   #çekim eki atılması sözlük 
+   haline getirilmesi 
+
+3-)Etkisiz Kelimeler
+    (Stop Words)
+
+
+---POStagging
+(Sözcük türü işartleme)---------
+
+POS = part of speech(sözcük türü)
+
+Yaklaşımlar
+#kural tabanlı
+-dil bilgisine bakarak
+#stokastik
+-istatistiksel geçmiş olaylara bakarak
+  #ürteken model(Generative 
+   Model) ortak olasılık
+  #Ayırıc Model(discrimiative 
+   Model) koşullu olasılık
+  
+
+ürtken model - saklı markov model(HMM) viterbi algoritmasi ile algoritma optimize edilir
+
+
+
+------------NER--------------
+Varlık İsmi Tanıma(name entity recognition)
+-----------------------------
+istanbul -Türkiyede bir şehir
+sthepan curry-basketbolcu
+bunlar varlık ismi
+
+
+person -> kişiler aileler
+
+loc-> şehir,ülke,cografik konum,dag
+
+org->organizasyon,şirket
+
+mısc->olaylar,ırk,ürün,sanat eseri
+
+spayc(18 tane varlık ismi var)
+
+
+Ner yaklaşımı
+
+-kural tabanlı
+
+-istatistiksel modeller
+ #dizi etiketleme (sequence 
+ labelling) tek tek 
+ işaretliyerek
+ #özellik tabanlı (feature- 
+ based) algoritma büyük harf 
+ filan bulundurmasına bakarak
+
+--------metin sınıflandırma ve kümeleme-------------------------------
+
+text(metin) preprocresin'
+
+a.tokenize etme
+
+b.text cleaning(özel 
+ karekterler ve noktalama 
+ işaretleri temizlenir)
+(stop words) silme
+
+d.metin normalizayonu 
+tüm harfler küçültülür
+yazım hataları(spellcheck)
+
+e.stemming and lemmatization
+
+
+-------------------------------
+feature extraction(öznitelik çıkarımı)
+-------------------------------
+a.temel istatistikler
+   kelime sayısı o sayısı bu 
+   sayısı stop words 
+   silinmemesi de olabilir
+   buyuk harf pozitif olabilir
+   twitterde mesela 
+   alana özgü öznitelik 
+   çıkartılabilir 
+b.kelime cantası modeli(bag of words BoW)
+   kelimelerin kullanım coklugu  Kelime Haznesi(Vocabulary)
+
+c.terim frekansı*ters metin frekanası TF*IDF skoru modeli
+   tf kendi dökümanı idf başka 
+   dökümanlar tf yüksek idf az 
+   olmalı
+ 
+
+d. n-gram model
+ bow aksina bir baglam modelidir
+ 
+ 
+ bow de : ve ile gibi kelimeler çok var onlar hataya yol açabilir
+ o yüzden tf*idf kullanılıyor
+ 
+ n_gramlısıda var
+ n_gram kelime bazlı harf bazlı olabilir   unigram bigram trigram ngram kullanım sıklıgı verir
+
+--------------------------------Metin Temsili(word embedding)
+--------------------------------(Makineye anlatma)
+a.frekans tabanlı temsil
+ kelime cantası ve sayma vectoru
+ tf-ıdf
+ eş oluşum matriseri
+
+b.tahminleme
+benzer kelimeler yakın durumda
+*word2vec sürekli kelime çantası(CBOW)
+ve gram-atla(skip gram)
+
+cbow skip gramın tam tersi 
+
+skip gram da girdi hedef kelime çıktı hedefin yakınındakiler 
+word2vec =kelimeler arasındaki uzaklığı vektörel olarak hesaplanması(çayın kahveye yakınlıgı gibi)
+
+
+*glove(global vectors for word representation)
+ birlikte kullanım istatiklerien dayanır
